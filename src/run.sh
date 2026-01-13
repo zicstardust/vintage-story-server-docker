@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 if [ -f "/app/VintagestoryServer.dll" ]; then
     DOTNET_ROOT="/opt/dotnet" dotnet /app/VintagestoryServer.dll --dataPath /data
