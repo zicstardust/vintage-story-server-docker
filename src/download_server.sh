@@ -31,12 +31,14 @@ UNSTABLE_FULL_URL="${UNSTABLE_URL}${VERSION}.tar.gz"
 
 if wget --spider -q "$STABLE_FULL_URL" 2>/dev/null; then
     DOWNLOAD_URL="$STABLE_FULL_URL"
+    FILENAME="vs_server_linux-x64_"
     echo "Downloading Vintage Story Server version ${VERSION} from stable..."
     if [ "$VERSION" != "$LATEST_STABLE" ]; then
         echo "NOTE: You are running stable version ${VERSION} but version ${LATEST_STABLE} is available!"
     fi
 elif wget --spider -q "$UNSTABLE_FULL_URL" 2>/dev/null; then
     DOWNLOAD_URL="$UNSTABLE_FULL_URL"
+    FILENAME="vs_server_linux-x64_"
     echo "Downloading Vintage Story Server version ${VERSION} from unstable..."
     if [ "$VERSION" != "$LATEST_UNSTABLE" ]; then
         echo "NOTE: You are running unstable version ${VERSION} but version ${LATEST_UNSTABLE} is available!"
@@ -52,8 +54,8 @@ fi
 
 
 wget -q "$DOWNLOAD_URL"
-tar xzf ${FILENAME:-vs_server_linux-x64_}${VERSION}.tar.gz
-rm -f ${FILENAME:-vs_server_linux-x64_}${VERSION}.tar.gz
+tar xzf ${FILENAME}${VERSION}.tar.gz
+rm -f ${FILENAME}${VERSION}.tar.gz
 
 
 #install dotnet (or mono)
